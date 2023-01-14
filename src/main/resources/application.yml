@@ -1,0 +1,10 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    url: jdbc:postgresql://localhost:5432/DualDB
+    password: '11111111'
+  jpa:
+    open-in-view: 'false'
+    hibernate:
+      ddl-auto: validate
