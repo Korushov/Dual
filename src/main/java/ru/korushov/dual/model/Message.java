@@ -34,13 +34,18 @@ public class Message {
     @Column(name = "message")
     @NotNull
     @Size(max = 400)
-    private String message;
+    private String text;
 
     @Column(name = "offset_time", columnDefinition = "TIME WITH TIME ZONE")
     private OffsetTime offsetTime;
 
     @Column(name = "local_date", columnDefinition = "DATE")
     private LocalDate localDate;
+
+    public Message(int userId, String text) {
+        this.userId = userId;
+        this.text = text;
+    }
 
     //private int likesCount;
 }

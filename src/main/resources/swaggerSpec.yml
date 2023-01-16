@@ -1,0 +1,248 @@
+openapi: 3.0.0
+info:
+  title: Dual Swagger Specification
+  version: 0.0.1
+servers:
+  - url: http://localhost:8080/
+    description: Dev server
+
+paths:
+  /users:
+    get:
+      summary: Отображение всех пользователей
+      tags:
+        - Users
+      operationId: show all users
+      responses:
+        '200':
+          description: Получение пользователей на странице
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Users"
+        default:
+          description: Все неизвестное
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /users/{user_id}:
+    get:
+      summary: Отображение пользователя по идентификатору
+      tags:
+        - Users
+      operationId: show user by id
+      parameters:
+        - name: user_id
+          in: path
+          required: true
+          description: Идентификатор пользователя
+          schema:
+            type: integer
+          example: 131413
+      responses:
+        '200':
+          description: Получение сведений о пользователе
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        default:
+          description: Все неизвестное
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /register:
+    post:
+      summary: добавить нового пользователя
+      tags:
+        - Users
+      operationId: add new user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterUser'
+      responses:
+        '200':
+          description: Новый пользователь создан
+        default:
+          description: Все неизвестное
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /messages:
+    get:
+      summary: Отображение всех сообщений
+      tags:
+        - Messages
+      operationId: show all messages
+      responses:
+        '200':
+          description: Получение сообщений на странице
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Messages"
+        default:
+          description: Все неизвестное
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /messages/{mess_id}:
+    get:
+      summary: Отображение сообщения по идентификатору
+      tags:
+        - Messages
+      operationId: show message by id
+      parameters:
+        - name: mess_id
+          in: path
+          required: true
+          description: Идентификатор сообщения
+          schema:
+            type: integer
+          example: 131413
+      responses:
+        '200':
+          description: Получение сведений о сообщении
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Message"
+        default:
+          description: Все неизвестное
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /messages/new:
+    post:
+      summary: Добавить новое сообщение
+      tags:
+        - Messages
+      operationId: add new message
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewMessage'
+      responses:
+        '200':
+          description: Новый сообщение отправлено
+        default:
+          description: Все неизвестное
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    User:
+      type: object
+      required:
+        - user_id
+        - email
+        - username
+        - profile_summary
+        - message_list
+      properties:
+        user_id:
+          type: integer
+          example: 13141
+        email:
+          type: string
+          example: testmail@gmail.com
+        username:
+          type: string
+          example: Ivan Ivanov
+        profile_summary:
+          type: string
+          example: Traveler
+        message_list:
+          type: array
+          items:
+            $ref: "#/components/schemas/Message"
+
+    RegisterUser:
+      type: object
+      required:
+        - email
+        - username
+        - password
+      properties:
+        email:
+          type: string
+          example: testmail@mail.ru
+        username:
+          type: string
+          example: Ivan Ivanov
+        password:
+          type: string
+          example: password
+
+    Message:
+      type: object
+      required:
+        - mess_id
+        - user_id
+        - text
+        - offset_time
+        - local_date
+      properties:
+        mess_id:
+          type: integer
+          example: 214432
+        user_id:
+          type: integer
+          example: 13141
+        text:
+          type: string
+          example: Sample text
+        offset_time:
+          type: string
+          format: 10:15:30+01:00
+        local_date:
+          type: string
+          format: 2007-12-03
+
+    NewMessage:
+      type: object
+      required:
+        - text
+      properties:
+        text:
+          type: string
+          example: Sample text
+
+    Messages:
+      type: array
+      items:
+        $ref: "#/components/schemas/Message"
+
+    Users:
+      type: array
+      items:
+        $ref: "#/components/schemas/User"
+
+    Error:
+      type: object
+      required:
+        - code
+        - name
+      properties:
+        code:
+          type: integer
+          example: 200
+        name:
+          type: string
+
+

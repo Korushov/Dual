@@ -1,0 +1,9 @@
+
+
+
+'curl -X GET -H "Content-Type: application/json" http://localhost:8080/users'
+'curl -X GET -H "Content-Type: application/json" http://localhost:8080/users/2'
+'curl -X POST -H "Content-Type: application/json" -d '{"email": "test@ya.ru", "username": "Ivan", "password": "testpass"}' http://localhost:8080/register'
+'curl -X GET -H "Content-Type: application/json" http://localhost:8080/messages'
+'curl -X GET -H "Content-Type: application/json" http://localhost:8080/messaages/3'
+'curl -X POST -H "Content-Type: application/json" -d '{"user_id": "1", "text": "Hello"}' http://localhost:8080/messages/new'
