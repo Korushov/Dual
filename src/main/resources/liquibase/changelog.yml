@@ -1,0 +1,64 @@
+databaseChangeLog:
+  - changeSet:
+      id: DEV-1
+      author: Korushov
+      changes:
+        - createTable:
+            tableName: users
+            remarks: Таблица пользователей
+            columns:
+              - column:
+                  name: user_id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: email
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(30)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: profile_summary
+                  type: varchar(160)
+        - createTable:
+            tableName: messages
+            remarks: Таблица сообщений
+            columns:
+              - column:
+                  name: mess_id
+                  type: bigserial
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: user_id
+                  type: integer
+              - column:
+                  name: message
+                  type: varchar(400)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: offset_time
+                  type: time with time zone
+                  constraints:
+                    nullable: false
+              - column:
+                  name: local_date
+                  type: date
+                  constraints:
+                    nullable: false
