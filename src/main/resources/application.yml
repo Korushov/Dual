@@ -2,9 +2,12 @@ spring:
   datasource:
     driver-class-name: org.postgresql.Driver
     username: postgres
-    url: jdbc:postgresql://localhost:5432/DualDB
+    url: jdbc:postgresql://localhost:5432/Dual_DB
     password: '11111111'
   jpa:
     open-in-view: 'false'
     hibernate:
       ddl-auto: validate
+
+  liquibase:
+    change-log: classpath:liquibase/changelog.yml

@@ -1,8 +1,9 @@
 package ru.korushov.dual.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.stereotype.Repository;
-import ru.korushov.dual.model.User;
+import ru.korushov.dual.entity.User;
 
 import java.util.List;
 

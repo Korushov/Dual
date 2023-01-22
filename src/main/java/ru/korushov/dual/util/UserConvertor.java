@@ -3,7 +3,7 @@ import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 import ru.korushov.dual.DTO.ShowUserDTO;
-import ru.korushov.dual.model.User;
+import ru.korushov.dual.entity.User;
 
 /**
  * @author Vitaly Korushov

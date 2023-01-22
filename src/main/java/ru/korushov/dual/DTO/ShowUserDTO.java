@@ -1,9 +1,6 @@
 package ru.korushov.dual.DTO;
 
 import lombok.Data;
-import ru.korushov.dual.model.Message;
-
-import java.util.List;
 
 /**
  * @author Vitaly Korushov
@@ -15,5 +12,4 @@ public class ShowUserDTO {
     private String email;
     private String username;
     private String profileSummary;
-    private List<Message> messageList;
 }

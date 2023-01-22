@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import ru.korushov.dual.DTO.SignUpRequest;
-import ru.korushov.dual.model.User;
+import ru.korushov.dual.entity.User;
 import ru.korushov.dual.service.UserService;
 
 import java.util.List;

@@ -4,12 +4,10 @@ import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.*;
 import ru.korushov.dual.DTO.ShowUserDTO;
-import ru.korushov.dual.model.Message;
 import ru.korushov.dual.service.UserService;
 import ru.korushov.dual.util.UserConvertor;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**

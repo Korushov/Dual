@@ -1,4 +1,4 @@
-package ru.korushov.dual.model;
+package ru.korushov.dual.entity;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -6,7 +6,10 @@ import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import javax.annotation.processing.Generated;
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.List;
 
 /**
@@ -14,7 +17,7 @@ import java.util.List;
  */
 
 @Entity
-@Table(name = "user")
+@Table(name = "users")
 @Getter
 @Setter
 @NoArgsConstructor
@@ -43,9 +46,6 @@ public class User {
     @Size(max = 160)
     private String profileSummary;
 
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id")
-    private List<Message> messageList;
 
     public User(String email, String username, String password) {
         this.email = email;

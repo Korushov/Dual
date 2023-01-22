@@ -244,5 +244,3 @@ components:
           example: 200
         name:
           type: string
-
-

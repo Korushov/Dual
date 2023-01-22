@@ -1,11 +1,9 @@
 package ru.korushov.dual.service;
 
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import ru.korushov.dual.DTO.ShowUserDTO;
-import ru.korushov.dual.model.User;
+import ru.korushov.dual.entity.User;
 import ru.korushov.dual.repo.UserRepo;
 
 import java.util.ArrayList;
